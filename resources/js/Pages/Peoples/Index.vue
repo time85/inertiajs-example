@@ -3,19 +3,25 @@
 
     <div class="row">
         <div class="col-md-12" style="margin-top: 20px">
-            <h2 class="text-left">All People</h2>
-
+            <h3 class="text-left">My People</h3>
             <errors-and-messages :errors="errors"></errors-and-messages>
-
             <div v-if="peoples.data.length > 0">
-
-                <table>
+                <table class="table table-bordered">
+                    <thead>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Street</th>
+                        <th>PostalCode</th>
+                        <th>City</th>
+                    </thead>
                     <tbody>
                         <tr v-for="person in peoples.data" :key="person.id">
 
                             <td>{{person.firstname}}</td>
                             <td>{{person.lastname}}</td>
-                            <td>{{person.slug}}</td>
+                            <td>{{person.street}}</td>
+                            <td>{{person.postalCode}}</td>
+                            <td>{{person.city}}</td>
                             <td><inertia-link :href="$route('people.edit', {id: person.id})" class="btn btn-primary pull-right action-btn">Edit Person</inertia-link>
                             </td>
 
