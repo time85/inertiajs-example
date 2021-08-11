@@ -18,16 +18,16 @@
             <div class="navbar-collapse collapse order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item" v-if="!user">
-                        <inertia-link :href="$route('showLoginForm')" class="nav-link">Login</inertia-link>
+                        <inertia-link href="/login" class="nav-link">Login</inertia-link>
                     </li>
                     <li class="nav-item" v-if="!user">
-                        <inertia-link :href="$route('showRegisterForm')" class="nav-link">Register</inertia-link>
+                        <inertia-link href="/register" class="nav-link">Register</inertia-link>
                     </li>
                     <li class="nav-item" v-if="user">
                         <span class="navbar-text" v-if="user">
                             Logged in as {{user.name}}
                         </span>
-                        <inertia-link :href="$route('logout')" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button">Logout</inertia-link>
+                        <inertia-link href="/logout" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button">Logout</inertia-link>
                     </li>
                 </ul>
             </div>
