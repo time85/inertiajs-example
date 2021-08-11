@@ -42,6 +42,12 @@ class PeopleController extends Controller
         //
     }
 
+    public function show() {
+        return Inertia::render('Peoples/Index', [
+            "people" => People::query()->orderBy('id', 'DESC')->paginate(10)
+        ]);
+    }
+
 
     public function destroy($id)
     {
