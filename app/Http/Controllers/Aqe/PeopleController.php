@@ -16,7 +16,7 @@ class PeopleController extends Controller
 
     public function index()
     {
-        return Inertia::render('People/Index', [
+        return Inertia::render('Peoples/Index', [
             "people" => People::query()->orderBy('id', 'DESC')->paginate(10)
         ]);
     }
@@ -24,14 +24,14 @@ class PeopleController extends Controller
 
     public function create()
     {
-        return Inertia::render('People/Create');
+        return Inertia::render('Peoples/Create');
     }
 
 
 
     public function edit($id)
     {
-        return Inertia::render('People/Edit', [
+        return Inertia::render('Peoples/Edit', [
             'people' => People::query()->findOrFail($id)
         ]);
     }
