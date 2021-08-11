@@ -1,20 +1,26 @@
 <template>
     <app-header></app-header>
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form method="post" @submit.prevent="submit">
-                <h2 class="text-center">Sign In</h2>
-                <errors-and-messages :errors="errors"></errors-and-messages>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" v-model="form.email" />
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height:100vh">
+            <div class="col-6">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" @submit.prevent="submit" autocomplete="off">
+                            <h2 class="text-center pb-4">Sign In</h2>
+                            <errors-and-messages :errors="errors"></errors-and-messages>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" name="email" id="email" v-model="form.email" />
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" v-model="form.password" />
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-block" value="Login" />
+                        </form>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" v-model="form.password" />
-                </div>
-                <input type="submit" class="btn btn-primary btn-block" value="Login" />
-            </form>
+            </div>
         </div>
     </div>
 </template>
@@ -50,7 +56,5 @@ export default {
 }
 </script>
 <style scoped>
-form {
-    margin-top: 20px;
-}
+
 </style>

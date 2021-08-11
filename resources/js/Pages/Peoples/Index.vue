@@ -1,9 +1,9 @@
 <template>
     <app-header></app-header>
-
-    <div class="row">
+    <div class="container pt-5">
+        <div class="row">
         <div class="col-md-12" style="margin-top: 20px">
-            <h3 class="text-left">My People</h3>
+            <h3 class="text-left py-4">My People</h3>
             <errors-and-messages :errors="errors"></errors-and-messages>
             <div v-if="peoples.data.length > 0">
                 <table class="table table-bordered">
@@ -54,7 +54,7 @@
             </div>
         </div>
     </div>
-
+    </div>
 </template>
 
 <script>
