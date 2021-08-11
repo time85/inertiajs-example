@@ -22,4 +22,4 @@ Route::post('login', [LoginController::class, 'authenticate'])->name('login');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::resource('people', PeopleController::class);
-Route::redirect('/', 'login');
+Route::redirect('/', 'people');
