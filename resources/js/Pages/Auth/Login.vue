@@ -35,8 +35,8 @@ export default {
     },
     setup() {
         const form = reactive({
-            email: null,
-            password: null,
+            email: 'user@demo.at',
+            password: 'user',
             _token: usePage().props.value.csrf_token
         });
         const route = inject('$route');

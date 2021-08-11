@@ -16,6 +16,6 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         People::factory()->count(100)->create();
-
+        $this->call(UsersTableSeeder::class);
     }
 }
