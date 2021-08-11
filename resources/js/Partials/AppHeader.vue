@@ -1,38 +1,34 @@
 <template>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-            <inertia-link :href="$route('people.index')" class="navbar-brand">Inertia Demo</inertia-link>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <inertia-link :href="$route('people.index')" class="nav-link">Home</inertia-link>
-                    </li>
-                    <li class="nav-item">
-                        <inertia-link :href="$route('people.create')" class="nav-link">Add Person</inertia-link>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar-collapse collapse order-3 dual-collapse2">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item" v-if="!user">
-                        <inertia-link href="/login" class="nav-link">Login</inertia-link>
-                    </li>
-                    <li class="nav-item" v-if="!user">
-                        <inertia-link href="/register" class="nav-link">Register</inertia-link>
-                    </li>
-                    <li class="nav-item" v-if="user">
-                        <span class="navbar-text" v-if="user">
-                            Logged in as {{user.name}}
-                        </span>
-                        <inertia-link href="/logout" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button">Logout</inertia-link>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <inertia-link :href="$route('people.index')" class="navbar-brand">Inertia Demo</inertia-link>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"  v-if="user">
+                    <inertia-link :href="$route('people.index')" class="nav-link">My People</inertia-link>
+                </li>
+                <li class="nav-item"  v-if="user">
+                    <inertia-link :href="$route('people.create')" class="nav-link">Add</inertia-link>
+                </li>
+            </ul>
+            <ul class="navbar-nav pull-right mt-2 mt-md-0">
+                <li class="nav-item" v-if="!user">
+                    <inertia-link href="/login" class="nav-link">Login</inertia-link>
+                </li>
+                <li class="nav-item" v-if="!user">
+                    <inertia-link href="/register" class="nav-link">Register</inertia-link>
+                </li>
+                <li class="nav-item" v-if="user">
+                    <span class="navbar-text" v-if="user">
+                        Logged in as {{user.name}}
+                    </span>
+                    <inertia-link href="/logout" as="button" method="post" class="nav-link logout-link" style="display: inline" type="button">Logout</inertia-link>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </template>
 <script>
 import {computed} from "vue";
