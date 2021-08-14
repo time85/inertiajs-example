@@ -11,6 +11,14 @@ const mix = require('laravel-mix');
  |
  */
 
+
+var LiveReloadPlugin = require("webpack-livereload-plugin");
+mix.webpackConfig({
+    plugins: [new LiveReloadPlugin()],
+});
+
 mix.js('resources/js/app.js', 'public/js').vue()
    .postCss('resources/css/app.css', 'public/css', [
     ]);
+
+
