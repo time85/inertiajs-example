@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <form method="post" @submit.prevent="submit">
-                    <h2 class="text-left">Delete Person</h2>
+                    <h2 class="text-left pb-2">Delete Person</h2>
                     <errors-and-messages :errors="errors"></errors-and-messages>
                     <div class="form-group">
                         <label class="col-md-6"><strong>Firstname</strong></label>
