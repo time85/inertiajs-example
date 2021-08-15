@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Aqe\People;
+use App\Models\People;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
