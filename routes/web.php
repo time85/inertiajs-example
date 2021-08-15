@@ -24,5 +24,6 @@ Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('people', [PeopleController::class, 'index'])->name('people.index');
 Route::get('people/create', [PeopleController::class, 'create'])->name('people.create');
 Route::get('people/edit/{id}', [PeopleController::class, 'edit'])->name('people.edit');
+Route::put('people/edit/{id}', [PeopleController::class, 'update'])->name('people.update');
 //Route::resource('people', PeopleController::class);
 Route::redirect('/', 'people');

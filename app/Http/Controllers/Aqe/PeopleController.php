@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Aqe;
 use App\Http\Controllers\Controller;
 use App\Models\People;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Inertia\Inertia;
 
 class PeopleController extends Controller
@@ -39,7 +40,16 @@ class PeopleController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $this->getValidate($request, $id);
+        $people = People::find($id);
+        $people->firstname = $request->input('firstname');
+        $people->lastname = $request->input('lastname');
+        $people->street = $request->input('street');
+        $people->postalCode = $request->input('postalCode');
+        $people->city = $request->input('city');
+        $people->save();
+        $request->session()->flash('success', 'Person updated successfully!');
+        return redirect()->route('people.index');
     }
 
     public function show() {
@@ -53,4 +63,21 @@ class PeopleController extends Controller
     {
         //
     }
+
+    /**
+     * @param Request $request
+     * @throws ValidationException
+     */
+    private function getValidate(Request $request): void
+    {
+        $data = [
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'street' => 'required',
+            'postalCode' => 'required',
+            'city' => 'required'
+        ];
+        $this->validate($request, $data);
+    }
+
 }
