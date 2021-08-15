@@ -21,5 +21,8 @@ Route::get('register', [RegisterController::class, 'showRegisterForm'])->name('s
 Route::post('login', [LoginController::class, 'authenticate'])->name('login');
 Route::post('register', [RegisterController::class, 'register'])->name('register');
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
-Route::resource('people', PeopleController::class);
+Route::get('people', [PeopleController::class, 'index'])->name('people.index');
+Route::get('people/create', [PeopleController::class, 'create'])->name('people.create');
+Route::get('people/edit/{id}', [PeopleController::class, 'edit'])->name('people.edit');
+//Route::resource('people', PeopleController::class);
 Route::redirect('/', 'people');
