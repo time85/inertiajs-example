@@ -58,6 +58,22 @@ class PeopleController extends Controller
         ]);
     }
 
+    public function delete_view($id)
+    {
+        return Inertia::render('Peoples/Delete', [
+            'people' => People::query()->findOrFail($id)
+        ]);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $people = People::find($id);
+        $people->delete();
+        $request->session()->flash('success', 'Person removed successfully!');
+        return redirect()->route('people.index');
+    }
+
+
 
     public function destroy($id)
     {

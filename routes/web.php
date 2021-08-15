@@ -23,7 +23,11 @@ Route::post('register', [RegisterController::class, 'register'])->name('register
 Route::post('logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('people', [PeopleController::class, 'index'])->name('people.index');
 Route::get('people/create', [PeopleController::class, 'create'])->name('people.create');
+
 Route::get('people/edit/{id}', [PeopleController::class, 'edit'])->name('people.edit');
 Route::put('people/edit/{id}', [PeopleController::class, 'update'])->name('people.update');
+
+Route::get('people/delete/{id}', [PeopleController::class, 'delete_view'])->name('people.delete');
+Route::delete('people/delete/{id}', [PeopleController::class, 'delete']);
 //Route::resource('people', PeopleController::class);
 Route::redirect('/', 'people');

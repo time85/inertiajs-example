@@ -1,33 +1,38 @@
 <template>
     <app-header></app-header>
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <form method="post" @submit.prevent="submit">
-                <h2 class="text-left">Update Person</h2>
-                <errors-and-messages :errors="errors"></errors-and-messages>
-                <div class="form-group">
-                    <label for="firstname">firstname</label>
-                    <input type="text" class="form-control" name="firstname" id="firstname" v-model="form.firstname" />
-                </div>
-                <div class="form-group">
-                    <label for="lastname">Lastname</label>
-                    <input type="text" class="form-control" name="lastname" id="lastname" v-model="form.lastname" />
-                </div>
-                <div class="form-group">
-                    <label for="street">Street</label>
-                    <input type="text" class="form-control" name="street" id="street" v-model="form.street" />
-                </div>
-                 <div class="form-group">
-                    <label for="postalCode">PostalCode</label>
-                    <input type="text" class="form-control" name="postalCode" id="postalCode" v-model="form.postalCode" />
-                </div>
-                 <div class="form-group">
-                    <label for="city">City</label>
-                    <input type="text" class="form-control" name="city" id="city" v-model="form.city" />
-                </div>
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <form method="post" @submit.prevent="submit">
+                    <h2 class="text-left">Update Person</h2>
+                    <errors-and-messages :errors="errors"></errors-and-messages>
+                    <div class="form-group">
+                        <label for="firstname">firstname</label>
+                        <input type="text" class="form-control" name="firstname" id="firstname" v-model="form.firstname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Lastname</label>
+                        <input type="text" class="form-control" name="lastname" id="lastname" v-model="form.lastname" />
+                    </div>
+                    <div class="form-group">
+                        <label for="street">Street</label>
+                        <input type="text" class="form-control" name="street" id="street" v-model="form.street" />
+                    </div>
+                     <div class="form-group">
+                        <label for="postalCode">PostalCode</label>
+                        <input type="text" class="form-control" name="postalCode" id="postalCode" v-model="form.postalCode" />
+                    </div>
+                     <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" name="city" id="city" v-model="form.city" />
+                    </div>
 
-                <input type="submit" class="btn btn-primary btn-block" value="Update" />
-            </form>
+
+                    <a @click="submit()" class="btn btn-primary btn-block text-white">
+                        <font-awesome-icon :icon="['fas', 'save']" />&nbsp;Save
+                    </a>
+                </form>
+            </div>
         </div>
     </div>
 </template>

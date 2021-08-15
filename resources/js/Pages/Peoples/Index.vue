@@ -13,6 +13,7 @@
                         <th>Street</th>
                         <th>PostalCode</th>
                         <th>City</th>
+                        <th>Actions</th>
                     </thead>
                     <tbody>
                         <tr v-for="person in peoples.data" :key="person.id">
@@ -22,7 +23,13 @@
                             <td>{{person.street}}</td>
                             <td>{{person.postalCode}}</td>
                             <td>{{person.city}}</td>
-                            <td><inertia-link :href="$route('people.edit', {id: person.id})" class="btn btn-primary pull-right action-btn">Edit Person</inertia-link>
+                            <td>
+                                <inertia-link :href="$route('people.edit', {id: person.id})" class="btn btn-primary action-btn pr-2">
+                                    <font-awesome-icon :icon="['fas', 'pencil-alt']" />&nbsp;Edit
+                                </inertia-link>
+                                <inertia-link :href="$route('people.delete', {id: person.id})" class="btn btn-danger action-btn">
+                                    <font-awesome-icon :icon="['fas', 'trash']" />&nbsp;Remove
+                                </inertia-link>
                             </td>
 
                         </tr>
